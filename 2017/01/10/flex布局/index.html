@@ -6,17 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://txmudy.cn">
-  <title>Tag: 笔记 | Mudy</title>
+  <title>Flex布局 | Mudy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="要什么介绍，谁认识你啊">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mudy">
-<meta property="og:url" content="http://txmudy.cn/tags/笔记/index.html">
+  <meta name="description" content="学习过程中记的笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flex布局">
+<meta property="og:url" content="http://txmudy.cn/2017/01/10/flex布局/index.html">
 <meta property="og:site_name" content="Mudy">
-<meta property="og:description" content="要什么介绍，谁认识你啊">
+<meta property="og:description" content="学习过程中记的笔记">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1053458-7eb63dd88c29afc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1053458-0133b359b3123d7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1053458-bc386c1edc02a2c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1053458-e36faba1f3f9be8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1053458-99cecbaee4250aec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1053458-8e11cee17490c53a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-01-10T14:46:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mudy">
-<meta name="twitter:description" content="要什么介绍，谁认识你啊">
+<meta name="twitter:title" content="Flex布局">
+<meta name="twitter:description" content="学习过程中记的笔记">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1053458-7eb63dd88c29afc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Mudy" type="application/atom+xml">
   
@@ -172,36 +180,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-flex布局" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Flex布局
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/10/flex布局/" class="archive-article-date">
+
+        <a href="/2017/01/10/flex布局/" class="archive-article-date">
   	<time datetime="2017-01-10T14:14:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/10/flex布局/">Flex布局</a>
-    </h1>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习过程中记的笔记</p>
+<a id="more"></a>
+<h2 id="一、常用组建之View"><a href="#一、常用组建之View" class="headerlink" title="一、常用组建之View"></a>一、常用组建之View</h2><p> &emsp;Reactive Native中的组件view，相当于iOS中的UIView,Android中的android.view<br>在Reactive Native开发中，使用StyleSheet来进行组件的布局。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class BView extends Component &#123;  </div><div class="line">     Render() &#123;    </div><div class="line">       return (       </div><div class="line">        &lt;View style=&#123;styles.container&#125;&gt;          </div><div class="line">           &lt;Text&gt;我是顶层view&lt;/Text&gt;          </div><div class="line">             &lt;View style = &#123;styles.innerStyle&#125;&gt;            </div><div class="line">                 &lt;Text&gt;我是子层view&lt;/Text&gt;          </div><div class="line">             &lt;/View&gt;        </div><div class="line">         &lt;/View&gt;    </div><div class="line">       );  </div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line"></div><div class="line">   const styles = StyleSheet.create(&#123;  </div><div class="line">     container:&#123;    </div><div class="line">       //flex: 1,　//占满整个屏幕    </div><div class="line">       //justifyContent:&apos;center&apos;,    </div><div class="line">       //alignItems: &apos;center&apos;,    </div><div class="line">       backgroundColor:&apos;red&apos;,    </div><div class="line">       width :300,    height : 60  </div><div class="line">     &#125;,  </div><div class="line">     innerStyle:&#123;    </div><div class="line">       backgroundColor:&apos;yellow&apos;  </div><div class="line">     &#125;</div><div class="line">   &#125;);</div></pre></td></tr></table></figure>
+<p>  &emsp;在Render函数中，我们返回了一个顶层的View，然后View中包含着另一个字层的View。</p>
+<p>  &emsp; 在顶层的View中style属性里面设置了宽带300，高度60，背景颜色为红色；</p>
+<p>  &emsp; 对应子层中的View的style属性中设置了背景色为黄色。<br>显示效果如下</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1053458-7eb63dd88c29afc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2016-08-06 17.25.44.png"></p>
+<p> 那么我们怎么能让他们显示在一行呢？</p>
+<p>#####就用到了Flexbox↓</p>
+<p>##二、 FlexBox布局<br>  &emsp;FelxBox:能够伸缩或者很容易变化，以适应外界条件的变化<br>  &emsp;  box：通用的矩形容器<br>  &emsp;  FlexBox布局？：弹性盒模型，又叫Flexbox,意为“弹性布局”，旨在通过弹性的方式来，，巴拉巴拉吧拉，，，，，，</p>
+<ul>
+<li>FlexBox的常用属性：<br>➢flexDirection:’row|row-reverse|column| column-reverse’<br>该属性决定主轴的方向（即项目排列的方向，所以上边的<br>例子，因为他的主轴的方向是x轴正向，所以才会竖着排下来了）<br>row:主轴为水平方向，起点在左端<br>row-reverse:主轴为水平方向，起点在右端<br>column:主轴为垂直方向，起点在上沿<br>column-reverse:主轴为垂直方向，起点在下沿</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1053458-0133b359b3123d7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="328E870B-7968-4385-8557-2AC77E2D7C65.png"></p>
+<p>代码就像下面这样↓，哈哈，为什么没有老师的那个效果呢😏，哈哈哈，因为老师设置的高都是一样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">class BView extends Component &#123;  </div><div class="line">      render() &#123;    </div><div class="line">         return (        </div><div class="line">             &lt;View style=&#123;styles.container&#125;&gt;         </div><div class="line">             &#123;/*&lt;Text&gt;我是顶层view&lt;/Text&gt;*/&#125;          </div><div class="line">                &lt;View style = &#123;styles.innerStyle&#125;&gt;            </div><div class="line">                     &lt;Text&gt;我是子层view&lt;/Text&gt;          </div><div class="line">                 &lt;/View&gt;          </div><div class="line">                 &lt;View style = &#123;styles.inner2Style&#125;&gt;            </div><div class="line">                     &lt;Text&gt;我是子层2view&lt;/Text&gt;       </div><div class="line">                 &lt;/View&gt;       </div><div class="line">             &lt;/View&gt;  </div><div class="line">          ); </div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">    const styles = StyleSheet.create(&#123;  </div><div class="line">        container:&#123;    </div><div class="line">        //flex: 1,　//占满整个屏幕    </div><div class="line">        //justifyContent:&apos;center&apos;,    </div><div class="line">        //alignItems: &apos;center&apos;,   </div><div class="line">        backgroundColor:&apos;red&apos;,    </div><div class="line">        width :300,    </div><div class="line">        height : 80,   </div><div class="line">        //改变主轴方向，默认是竖向    </div><div class="line">        flexDirection:&apos;row&apos;  </div><div class="line">      &#125;,</div><div class="line">      innerStyle:&#123;    </div><div class="line">        backgroundColor:&apos;yellow&apos;,   </div><div class="line">        width:150,   </div><div class="line">        height:20 </div><div class="line">       &#125;,</div><div class="line">      inner2Style:&#123;   </div><div class="line">        backgroundColor:&apos;darkgray&apos;,   </div><div class="line">        width:100,    </div><div class="line">       height:20  </div><div class="line">      &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>效果图如下↓</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1053458-bc386c1edc02a2c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2016-08-06 18.19.54.png"></p>
+<p>➢justifyContent:flex-end | space-around|<br>justifyContent:’center’↓<br><img src="http://upload-images.jianshu.io/upload_images/1053458-e36faba1f3f9be8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2016-08-07 20.48.59.png"><br>➢justifyContent:’space-between’↓</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1053458-99cecbaee4250aec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2016-08-07 20.50.59.png"></p>
+<p>➢justifyContent:’space-around’↓</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1053458-8e11cee17490c53a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2016-08-07 20.52.09.png"></p>
+<p>##三、常用组建之Text</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">class TextDemo extends Component &#123;</div><div class="line">      render() &#123;</div><div class="line">           return &#123;</div><div class="line">               &lt;View style=&#123;&#123;marginTop:50&#125;&#125;&gt;</div><div class="line">                   &lt;Text style=&#123;styles.textStyle&#125; numberOfLines = &#123;5&#125;&gt;</div><div class="line">                     我是一段文字</div><div class="line">                    &lt;/Text&gt;</div><div class="line">               &lt;/View&gt;</div><div class="line">          &#125;;</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line"></div><div class="line">   const styles = StyleSheet.create(&#123;</div><div class="line">       textStyle:&#123;</div><div class="line">           backgroundColor:&apos;red&apos;,</div><div class="line">           color:&apos;yellow&apos;,</div><div class="line">           textAlign:&apos;right&apos;,</div><div class="line">           width:300,</div><div class="line">           lineHeight:&apos;right&apos;</div><div class="line">           fontSize: 18</div><div class="line">           fontWeight:&apos;bold&apos;</div><div class="line">           letterSracing: 5</div><div class="line">           textDecorationLine: &apos;underline&apos;</div><div class="line">           textDecorationStyle: &apos;double&apos;</div><div class="line">           textDecorationColor: &apos;black&apos;</div><div class="line">       &#125;</div><div class="line">   &#125;);</div><div class="line"></div><div class="line"></div><div class="line">   注释如下：</div><div class="line">   &apos;color&apos;字体颜色</div><div class="line">   &apos;textAlign&apos;   文本对其方式(&quot;auto&quot;, &apos;left&apos;, &apos;right&apos;, &apos;center&apos;, &apos;justify&apos;)</div><div class="line">   &apos;lineHeight&apos;  行高</div><div class="line">   &apos;fontSize&apos;  字体大小</div><div class="line">   &apos;fontWeight &apos; 字体粗细权重(&quot;normal&quot;, &apos;bold&apos;, &apos;100&apos;, &apos;200&apos;, &apos;300&apos;, &apos;400&apos;, &apos;500&apos;,     &apos;600&apos;, &apos;700&apos;, &apos;800&apos;, &apos;900&apos;)</div><div class="line">   &apos;letterSpacing&apos;  字符间距</div><div class="line">   &apos;textDecorationLine&apos;  横线位置 (&quot;none&quot;, &apos;underline&apos;, &apos;line-through&apos;, &apos;underline line-through&apos;)</div><div class="line">   &apos;textDecorationStyle&apos; 线的风格(&quot;solid&quot;, &apos;double&apos;, &apos;dotted&apos;, &apos;dashed&apos;)</div><div class="line">   &apos;textDecorationColor&apos; 线的颜色</div><div class="line">   &apos;numberOfLines&apos; (number) 进行设置Text显示文本的行数，如果显示的内容超过了行数，默认其他多余的信息就不会显示了</div><div class="line">   &apos;onPress&apos; (fcuntion)  该方法当文本发生点击的时候调用该方法</div><div class="line">   &apos;fontFamily&apos;  字体名称</div><div class="line">   &apos;fontStyle&apos;   字体风格(normal,italic)</div><div class="line">   &apos;textShadowOffset&apos;  设置阴影效果&#123;width: number, height: number&#125;</div><div class="line">   &apos;textShadowRadius&apos;  阴影效果圆角</div><div class="line">   &apos;textShadowColor&apos;  阴影效果的颜色</div><div class="line">   &apos;writingDirection&apos; 文本方向(&quot;auto&quot;, &apos;ltr&apos;, &apos;rtl&apos;)</div></pre></td></tr></table></figure>
+      
 
-        <div class="article-info info-on-right">
-          
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list">
@@ -217,61 +266,84 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/10/小程序学习笔记/" class="archive-article-date">
-  	<time datetime="2017-01-10T14:08:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/10/小程序学习笔记/">微信小程序学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			 
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color4">小程序</a>
-        </li>
-       
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color3">笔记</a>
-        </li>
       
-		</ul>
-	</div>
 
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://txmudy.cn/2017/01/10/flex布局/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/10/小程序学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">微信小程序学习笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
 
 
           </div>
@@ -294,9 +366,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",
