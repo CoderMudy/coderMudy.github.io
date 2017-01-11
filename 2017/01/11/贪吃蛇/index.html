@@ -194,7 +194,265 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-贪吃蛇" class="article article-type-post " itemscope itemprop="blogPost">
+<div class="article-inner">
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      贪吃蛇(一)
+    </h1>
+  
+
+
+<a href="/2017/01/11/贪吃蛇/" class="archive-article-date">
+  	<time datetime="2017-01-11T13:33:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-11</time>
+</a>
+
+</header>
+
+<div class="article-entry" itemprop="articleBody">
+
+<h4 id="贪吃蛇-一"><a href="#贪吃蛇-一" class="headerlink" title="贪吃蛇(一)"></a>贪吃蛇(一)</h4><p>MDZZ突然发现之前几天代码写的太渣了，重构否？</p>
+<ul>
+<li><strong>第一阶段</strong>显示效果如下图</li>
+</ul>
+<p><img src="./tan.png" alt=""></p>
+<p><strong>.wxml</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;canvas canvas-id=&quot;snakeCanvas&quot; class=&quot;backCanvas&quot; bindtouchstart=&quot;canvasStart&quot; bindtouchmove=&quot;canvasMove&quot; bindtouchend=&quot;canvasEnd&quot;&gt;</div><div class="line">&lt;/canvas&gt;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在这里主要是使用了canvas几个属性<code>bindtouchstart</code> <code>bindtouchmove</code> <code>bindtouchend</code>并绑定了事件,这样就可以获取用户点击拖拽时候的手势的信息.</p>
+<p><strong>.wxss</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.backCanvas&#123;</div><div class="line">	width: 100%; </div><div class="line">	/*这里设置100%为什么不好使*/</div><div class="line">	height: 750rpx;</div><div class="line">	background-color: #ccc;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;<em>为什么在设置canvas的样式的时候给了height:100%,不好用呢？</em> 因为<code>canvas 标签默认宽度300px、高度225px</code>,那么我怎么让它铺满屏幕呢？</p>
+<ul>
+<li><strong> requestAnimationFrame()函数就是针对动画效果的API</strong><ul>
+<li>这个函数接收什么参数，他的返回值是什么?</li>
+</ul>
+</li>
+</ul>
+<p><strong>.js</strong></p>
+<p>&emsp;&emsp;先定义几个变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//手指按下的坐标点</div><div class="line">var startX = 0;</div><div class="line">var startY = 0;</div><div class="line">//移动了多少</div><div class="line">var X;</div><div class="line">var Y;</div><div class="line"></div><div class="line">//蛇头的对象</div><div class="line">var snakeHead = &#123;</div><div class="line">  x: 0,</div><div class="line">  y: 0,</div><div class="line">  color: &quot;#ff0000&quot;,</div><div class="line">  w: 20,</div><div class="line">  h: 20</div><div class="line">&#125;</div><div class="line">//身体 数组</div><div class="line">var snakeBody = [];</div><div class="line"></div><div class="line">//手指的滑动方向</div><div class="line">var direction = null;</div><div class="line">//蛇头移动的方向</div><div class="line">var snakeDirection = &quot;right&quot;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在.js文件中的Page({})中，实现一下在.wxml中绑定的几个方法</p>
+<p>&emsp;&emsp;用户开始拖拽的时候点击的事件，在这里获取到用户每次开始拖拽（不要较劲拖拽与点击）的时候的坐标点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">canvasStart: function (event) &#123;</div><div class="line">    startX = event.touches[0].x;</div><div class="line">    startY = event.touches[0].y;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;用户拖拽的过程中，这个方法会一直执行，在这里可以获取到用户当前手指所在的坐标点，然后可以判断得到用户的手势滑动的具体方向（当然了，这个也可以写在<strong>canvasEnd</strong>中）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">canvasMove: function (event) &#123;</div><div class="line">    var moveX = event.touches[0].x;</div><div class="line">    var moveY = event.touches[0].y;</div><div class="line"></div><div class="line">    X = moveX - startX;</div><div class="line">    Y = moveY - startY;</div><div class="line"></div><div class="line">    if (Math.abs(X) &gt; Math.abs(Y) &amp;&amp; X &gt; 0) &#123;</div><div class="line">      direction = &quot;right&quot;</div><div class="line">    &#125; else if (Math.abs(X) &gt; Math.abs(Y) &amp;&amp; X &lt; 0) &#123;</div><div class="line">      direction = &quot;left&quot;</div><div class="line">    &#125; else if (Math.abs(X) &lt; Math.abs(Y) &amp;&amp; Y &lt; 0) &#123;</div><div class="line">      direction = &quot;top&quot;</div><div class="line">    &#125; else &#123;</div><div class="line">      direction = &quot;bottom&quot;</div><div class="line">    &#125;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>用户手势完成的时候，离开屏幕会调用canvasEnd这个方法，在这里对蛇移动的方向进行赋值，将用户手势滑动的方向赋值给蛇头的方向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">canvasEnd: function () &#123;</div><div class="line">    snakeDirection = direction;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>在<strong>onReady</strong>中首先获取到画布的上下文</p>
+<figure class="highlight plain"><figcaption><span>context = wx.createContext();```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;然后实现一个animate函数，是因为那个蛇需要一直动，所以将这部分绘制蛇头蛇身的代码抽成了一个动画函数。</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;frameNum存在的作用是，不至于蛇跑的特别快（snakeHead.变化太快），requestAnimationFrame(animation),这个是一个帧动画的执行函数，在小程序中一秒钟大概调用60次animation</div></pre></td></tr></table></figure>
+<pre><code>function animate() {
+  frameNum++;
+  if (frameNum % 15 == 0) {
+    //像蛇身体添加一个上一个的位置（身体对象）
+    snakeBody.push({
+      x: snakeHead.x,
+      y: snakeHead.y,
+      w: 20,
+      h: 20,
+      color: &quot;#00ff00&quot;
+    });
+    if (snakeBody.length &gt; 1) {
+      snakeBody.shift();//删除数组的第一位 移除不用的身体部分
+    }
+
+    switch (snakeDirection) {
+      case &quot;left&quot;:
+        snakeHead.x -= snakeHead.w;
+        break;
+      case &quot;right&quot;:
+        snakeHead.x += snakeHead.w;
+        break;
+      case &quot;top&quot;:
+        snakeHead.y -= snakeHead.h;
+        break;
+      case &quot;bottom&quot;:
+        snakeHead.y += snakeHead.h;
+        break;
+    }
+  }
+  //绘制蛇头
+  draw(snakeHead)
+
+  //绘制的蛇的身体
+  for (var i = 0; i &lt; snakeBody.length; i++) {
+    var bodeObj = snakeBody[i];
+    draw(bodeObj)
+  }
+
+  wx.drawCanvas({
+    canvasId: &quot;snakeCanvas&quot;,
+    actions: context.getActions()
+  });
+  requestAnimationFrame(animate);
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">在onReady的最后记得 animate();`怎么理解在animate函数中执行requestAnimationFrame(animate);呢？`</div><div class="line"></div><div class="line">&amp;emsp;将画图绘制部分抽取成一个函数</div></pre></td></tr></table></figure>
+<pre><code>function draw(obj) {
+  context.setFillStyle(obj.color);
+  context.beginPath();
+  context.rect(obj.x, obj.y, obj.w, obj.h);
+  context.closePath();
+  context.fill();
+}
+</code></pre><p><code>``
+这两种函数</code>onReady: function () {}<code>`function draw(obj) {}</code></p>
+<p>其实onReady不是函数，而是Page() 函数用来注册一个页面。接受一个 object 参数，其指定页面的初始数据、生命周期函数、事件处理函数等。</p>
+<p><img src="./jiegou.png" alt="de"></p>
+
+
+
+
+<div class="page-reward">
+<a href="javascript:;" class="page-reward-btn tooltip-top">
+<div class="tooltip tooltip-east">
+<span class="tooltip-item">
+赏
+</span>
+<span class="tooltip-content">
+<span class="tooltip-text">
+<span class="tooltip-inner">
+<p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+<div class="reward-box">
+
+
+</div>
+</span>
+</span>
+</span>
+</div>
+</a>
+</div>
+
+</div>
+<div class="article-info article-info-index">
+
+
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			 
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color4">小程序</a>
+        </li>
+       
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color3">笔记</a>
+        </li>
+      
+		</ul>
+	</div>
+
+
+
+
+
+
+
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://txmudy.cn/2017/01/11/贪吃蛇/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+<div class="clearfix"></div>
+</div>
+</div>
+</article>
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/01/11/小程序笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/10/flex布局/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Flex布局</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
+<div class="duoshuo"></div>
+
+
+
+
+<section id="comments">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'txmudy12345'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
           </div>
         </div>
       </div>
