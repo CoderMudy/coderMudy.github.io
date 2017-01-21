@@ -16,7 +16,7 @@
 <meta property="og:description" content="学习过程中记的笔记">
 <meta property="og:image" content="http://txmudy.cn/./img/wxif.png">
 <meta property="og:image" content="http://txmudy.cn/./xuanzhuan.png">
-<meta property="og:updated_time" content="2017-01-21T03:35:25.000Z">
+<meta property="og:updated_time" content="2017-01-21T14:53:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序学习笔记">
 <meta name="twitter:description" content="学习过程中记的笔记">
@@ -336,6 +336,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">onShow: function()&#123;</div><div class="line">    util.mudy(&quot;mudy&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;运行，发现打印<strong>Your print mudy</strong></p>
 <p>&emsp;&emsp;这个的作用是，可以抽取出<code>工具类</code>放在这里进行使用（哈哈，我的获取今天、将来10天的两个函数可以拿过来了）</p>
+<h4 id="template的使用-（这个好）"><a href="#template的使用-（这个好）" class="headerlink" title="template的使用,（这个好）"></a>template的使用,（这个好）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;template name=&quot;mudy&quot;&gt;</div><div class="line">  &lt;view&gt;&#123;&#123;item.name&#125;&#125;&lt;/view&gt;</div><div class="line">  &lt;view&gt;&#123;&#123;item.address&#125;&#125;&lt;/view&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;block wx:for=&quot;&#123;&#123;arr&#125;&#125;&quot;&gt;</div><div class="line">    &lt;template is=&quot;mudy&quot; data=&quot;&#123;&#123;item&#125;&#125;&quot;/&gt;</div><div class="line">&lt;/block&gt;</div><div class="line"></div><div class="line">//    &lt;template is=&quot;mudy&quot; data=&quot;&#123;&#123;...item&#125;&#125;&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;可以将template抽出来单独放在一个文件中，然后在使用的时候</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;import src=&quot;item.wxml&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;使用include引入则不行，但是可以使用include直接引入<view>123</view>,include是静态的，不参与里边数据的解析</p>
 <h4 id="数据绑定与条件渲染"><a href="#数据绑定与条件渲染" class="headerlink" title="数据绑定与条件渲染"></a>数据绑定与条件渲染</h4><p>&emsp;&emsp;数据绑定使用 Mustache 语法（双大括号）将变量包起来，可以作用于：</p>
 <ul>
 <li>控制属性(需要在双引号之内)</li>
