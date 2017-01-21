@@ -16,7 +16,7 @@
 <meta property="og:description" content="学习过程中记的笔记">
 <meta property="og:image" content="http://txmudy.cn/./img/wxif.png">
 <meta property="og:image" content="http://txmudy.cn/./xuanzhuan.png">
-<meta property="og:updated_time" content="2017-01-21T02:41:31.000Z">
+<meta property="og:updated_time" content="2017-01-21T03:35:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序学习笔记">
 <meta name="twitter:description" content="学习过程中记的笔记">
@@ -345,10 +345,16 @@
 <p>index.js</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Page(&#123;</div><div class="line">  data: &#123;</div><div class="line">    motto: &apos;Hello World&apos;,</div><div class="line">    userInfo: &#123;&#125;,</div><div class="line">    mudy:123</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
 <p><img src="./img/wxif.png" alt="mo"></p>
-<ul>
-<li>三目运算符的使用</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;text class=&quot;user-motto&quot; hidden=&quot;&#123;&#123;mudy==123? true : false&#125;&#125;&quot;&gt;&#123;&#123;motto&#125;&#125;&lt;/text&gt;</div></pre></td></tr></table></figure>
+<h4 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h4><p>&emsp;&emsp;在wx:for=”arr”中，使用<code></code>来表示遍历出来的每一个元素(可以使用item.key来继续取值)，使用<code></code>来表示其下标值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;view wx:for=&quot;&#123;&#123;arr&#125;&#125;&quot; wx:for-item=&quot;mudy&quot;  wx:key=&quot;&#123;&#123;name&#125;&#125;&quot;&gt;</div><div class="line">  &#123;&#123;index&#125;&#125;.&#123;&#123;mudy.name&#125;&#125;--&gt;&#123;&#123;mudy.address&#125;&#125;</div><div class="line">&lt;/view&gt;</div></pre></td></tr></table></figure>
+<p>&emsp;<br>如果列表中项目的位置会动态改变或者有新的项目添加到列表中，并且希望列表中的项目保持自己的特征和状态（如 <code>&lt;input/&gt;</code> 中的输入内容，<code>&lt;switch/&gt;</code> 的选中状态），需要使用 <code>wx:key</code> 来指定列表中项目的唯一的标识符。</p>
+<p><code>wx:key</code> 的值以两种形式提供</p>
+<p>&emsp;&emsp; 1 字符串，代表在 for 循环的 array 中 item 的某个 property，该 property 的值需要是列表中唯一的字符串或数字，且不能动态改变。</p>
+<p>&emsp;&emsp;2 保留关键字 *this 代表在 for 循环中的 item 本身，这种表示需要 item 本身是一个唯一的字符串或者数字，如：</p>
+<p>&emsp;&emsp;当数据改变触发渲染层重新渲染的时候，会校正带有 key 的组件，框架会确保他们被重新排序，而不是重新创建，以确保使组件保持自身的状态，并且提高列表渲染时的效率。</p>
+<p>如不提供 wx:key，会报一个 warning， 如果明确知道该列表是静态，或者不必关注其顺序，可以选择忽略。</p>
+<h4 id="三目运算符的使用"><a href="#三目运算符的使用" class="headerlink" title="三目运算符的使用"></a>三目运算符的使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;text class=&quot;user-motto&quot; hidden=&quot;&#123;&#123;mudy==123? true : false&#125;&#125;&quot;&gt;&#123;&#123;motto&#125;&#125;&lt;/text&gt;</div></pre></td></tr></table></figure>
+<h4 id="wx-if与hidden区别"><a href="#wx-if与hidden区别" class="headerlink" title="wx:if与hidden区别"></a>wx:if与hidden区别</h4><p>&emsp;&emsp;wx:if条件成立的话，才会被渲染出来，但是hidden是会被渲染出来的，只不过是显示隐藏掉了。</p>
 <h4 id="加载动画的设置"><a href="#加载动画的设置" class="headerlink" title="加载动画的设置"></a>加载动画的设置</h4><h6 id="js文件中"><a href="#js文件中" class="headerlink" title=".js文件中"></a>.js文件中</h6><p>ccccccc<br><!--more--></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data: &#123;</div><div class="line">        loadingHidden: true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>通过<code>loadingHidden</code>来控制loadding的显示与隐藏</p>
@@ -639,15 +645,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color1">Swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color1">Swift</a>
               </li>
             
             <div class="clearfix"></div>
