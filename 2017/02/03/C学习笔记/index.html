@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://txmudy.cn">
-  <title>python函数式编程－map/reduce | Mudy</title>
+  <title>C++学习笔记 | Mudy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="人生苦短我用python">
+  <meta name="description" content="C++是世界上最好的语言">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python函数式编程－map/reduce">
-<meta property="og:url" content="http://txmudy.cn/2017/01/21/python函数式编程－map-reduce/index.html">
+<meta property="og:title" content="C++学习笔记">
+<meta property="og:url" content="http://txmudy.cn/2017/02/03/C学习笔记/index.html">
 <meta property="og:site_name" content="Mudy">
-<meta property="og:description" content="人生苦短我用python">
-<meta property="og:updated_time" content="2017-01-29T13:32:45.000Z">
+<meta property="og:description" content="C++是世界上最好的语言">
+<meta property="og:updated_time" content="2017-02-03T13:29:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python函数式编程－map/reduce">
-<meta name="twitter:description" content="人生苦短我用python">
+<meta name="twitter:title" content="C++学习笔记">
+<meta name="twitter:description" content="C++是世界上最好的语言">
   
     <link rel="alternative" href="/atom.xml" title="Mudy" type="application/atom+xml">
   
@@ -179,33 +179,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python函数式编程－map-reduce" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-C学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
 <div class="article-inner">
 
 <header class="article-header">
 
   
     <h1 class="article-title" itemprop="name">
-      python函数式编程－map/reduce
+      C++学习笔记
     </h1>
   
 
 
-<a href="/2017/01/21/python函数式编程－map-reduce/" class="archive-article-date">
-  	<time datetime="2017-01-21T03:39:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-21</time>
+<a href="/2017/02/03/C学习笔记/" class="archive-article-date">
+  	<time datetime="2017-02-03T13:24:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-03</time>
 </a>
 
 </header>
 
 <div class="article-entry" itemprop="articleBody">
 
-<p>人生苦短我用python</p>
-<a id="more"></a>
-<p>&emsp;&emsp;map()函数接收两个参数，一个是函数，一个是Iterator，map将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator返回。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def f (x):</div><div class="line"></div><div class="line">...    return x * x</div><div class="line"></div><div class="line">... &gt;&gt;&gt; r = map(f,[1,2,3,4,5,6,7])</div><div class="line"></div><div class="line">&gt;&gt;&gt; r</div><div class="line"></div><div class="line">&gt;&gt;&gt; list(r)</div><div class="line"></div><div class="line">[1, 4, 9, 16, 25, 36, 49]</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; from functools import reduce</div><div class="line"></div><div class="line">&gt;&gt;&gt; def add(x,y):</div><div class="line"></div><div class="line">...    return x + y</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">&gt;&gt;&gt; reduce(add,[1,3,5,7,9])</div><div class="line"></div><div class="line">25</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">如果要只是求和的话，可以使用map函数，</div><div class="line"></div><div class="line">&gt;&gt;&gt; sum([1,2,3,4,5])</div><div class="line"></div><div class="line">15</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt;&gt;&gt; from functools import reduce</div><div class="line"></div><div class="line">&gt;&gt;&gt; def fn(x,y):</div><div class="line"></div><div class="line">...    return 10*x + y</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">&gt;&gt;&gt; reduce(fn,[1,2,3,4])</div><div class="line"></div><div class="line">1234</div><div class="line"></div><div class="line">&gt;&gt;&gt; reduce(fn,[1,3,5,7])</div><div class="line"></div><div class="line">1357</div><div class="line"></div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+<p>C++是世界上最好的语言<br><a id="more"></a></p>
+<p><code>选择排序</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#define N 5//注意这个得写法，没有&quot;=&quot;也没有&quot;:&quot;</div><div class="line">int main() &#123;</div><div class="line">    int array[N] = &#123;1,2,4,3,5&#125;;</div><div class="line">    int temp;</div><div class="line">    for (int i = 0; i &lt; N-1; i++) &#123;</div><div class="line">        for (int j = i+1 ; j &lt; N; j++) &#123;</div><div class="line">            if (array[i] &gt; array[j]) &#123;</div><div class="line">                temp = array[i];</div><div class="line">                array[i] = array[j];</div><div class="line">                array[j] = temp;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    for (int m = 0; m&lt;N; m++) &#123;</div><div class="line">        printf(&quot;%d&quot;,array[m]);</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>冒泡排序</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#define N 5//注意这个得写法，没有&quot;=&quot;也没有&quot;:&quot;</div><div class="line">int main() &#123;</div><div class="line">    int array[N] = &#123;1,2,4,3,5&#125;;</div><div class="line">    int temp;</div><div class="line">    for (int i = 0; i &lt; N; i++) &#123;</div><div class="line">        for (int j = 0 ; j &lt; i; j++) &#123;</div><div class="line">            if (array[i] &gt; array[j]) &#123;</div><div class="line">                temp = array[i];</div><div class="line">                array[i] = array[j];</div><div class="line">                array[j] = temp;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    for (int m = 0; m&lt;N; m++) &#123;</div><div class="line">        printf(&quot;%d&quot;,array[m]);</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
 
 
 
@@ -239,7 +238,11 @@
 		<ul class="article-tag-list">
 			 
         <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color2">python</a>
+        	<a href="javascript:void(0)" class="article-tag-list-link color4">C++</a>
+        </li>
+       
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color3">笔记</a>
         </li>
       
 		</ul>
@@ -295,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://txmudy.cn/2017/01/21/python函数式编程－map-reduce/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://txmudy.cn/2017/02/03/C学习笔记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -309,18 +312,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/02/03/C学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          C++学习笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/01/11/贪吃蛇/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">贪吃蛇(一)</div>
+    <a href="/2017/01/21/python函数式编程－map-reduce/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python函数式编程－map/reduce</div>
       <i class="icon-circle-right"></i>
     </a>
   
