@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://txmudy.cn">
-  <title>C++学习笔记 | Mudy</title>
+  <title>ionic环境安装与运行 | Mudy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="C++是世界上最好的语言">
+  <meta name="description" content="ionic，跨平台开发，还是RN好">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++学习笔记">
-<meta property="og:url" content="http://txmudy.cn/2017/02/03/C学习笔记/index.html">
+<meta property="og:title" content="ionic环境安装与运行">
+<meta property="og:url" content="http://txmudy.cn/2017/02/04/ionic环境安装与运行/index.html">
 <meta property="og:site_name" content="Mudy">
-<meta property="og:description" content="C++是世界上最好的语言">
-<meta property="og:updated_time" content="2017-02-03T14:04:30.000Z">
+<meta property="og:description" content="ionic，跨平台开发，还是RN好">
+<meta property="og:updated_time" content="2017-02-04T12:04:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++学习笔记">
-<meta name="twitter:description" content="C++是世界上最好的语言">
+<meta name="twitter:title" content="ionic环境安装与运行">
+<meta name="twitter:description" content="ionic，跨平台开发，还是RN好">
   
     <link rel="alternative" href="/atom.xml" title="Mudy" type="application/atom+xml">
   
@@ -197,36 +197,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-C学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ionic环境安装与运行" class="article article-type-post " itemscope itemprop="blogPost">
 <div class="article-inner">
 
 <header class="article-header">
 
   
     <h1 class="article-title" itemprop="name">
-      C++学习笔记
+      ionic环境安装与运行
     </h1>
   
 
 
-<a href="/2017/02/03/C学习笔记/" class="archive-article-date">
-  	<time datetime="2017-02-03T13:24:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-03</time>
+<a href="/2017/02/04/ionic环境安装与运行/" class="archive-article-date">
+  	<time datetime="2017-02-04T11:56:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
 </a>
 
 </header>
 
 <div class="article-entry" itemprop="articleBody">
 
-<p>C++是世界上最好的语言<br><a id="more"></a></p>
-<p><code>选择排序</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#define N 5//注意这个得写法，没有&quot;=&quot;也没有&quot;:&quot;</div><div class="line">int main() &#123;</div><div class="line">    int array[N] = &#123;1,2,4,3,5&#125;;</div><div class="line">    int temp;</div><div class="line">    for (int i = 0; i &lt; N-1; i++) &#123;</div><div class="line">        for (int j = i+1 ; j &lt; N; j++) &#123;</div><div class="line">            if (array[i] &gt; array[j]) &#123;</div><div class="line">                temp = array[i];</div><div class="line">                array[i] = array[j];</div><div class="line">                array[j] = temp;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    for (int m = 0; m&lt;N; m++) &#123;</div><div class="line">        printf(&quot;%d&quot;,array[m]);</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>改进后的选择排序-使用下标来进行操作</code></p>
+<p>ionic，跨平台开发，还是RN好<br><a id="more"></a></p>
+<h5 id="ionic的安装"><a href="#ionic的安装" class="headerlink" title="ionic的安装"></a>ionic的安装</h5><p>首先应有npm环境，安装node就行了</p>
+<p><code>sudo npm install -g cordova ionic</code></p>
+<p>创建一个新的应用<code>ionic start myApp tabs</code></p>
 <ul>
-<li>在比较次数一定的情况下，减少了交换的次数，提高了效率</li>
+<li>创建了一个myApp项目，使用了<code>tabs</code>模板，另外还有两个模板blank和sidemenu.</li>
+<li>如果不使用模板的话，<code>ionic start appName</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">#define N 5//注意这个得写法，没有&quot;=&quot;也没有&quot;:&quot;</div><div class="line">int main() &#123;</div><div class="line">    int array[N] = &#123;1,2,4,3,5&#125;;</div><div class="line">    int temp;</div><div class="line">    int idx;</div><div class="line">    for (int i = 0; i &lt; N; i++) &#123;</div><div class="line">        idx = i;</div><div class="line">        for (int j = i + 1 ; j &lt; N; j++) &#123;</div><div class="line">            if (array[i] &gt; array[j]) &#123;</div><div class="line">                idx = j;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        if (idx != i) &#123;</div><div class="line">            temp = array[i];</div><div class="line">            array[i] = array[idx];</div><div class="line">            array[idx] = temp;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    for (int m = 0; m&lt;N; m++) &#123;</div><div class="line">        printf(&quot;%d&quot;,array[m]);</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>冒泡排序</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#define N 5//注意这个得写法，没有&quot;=&quot;也没有&quot;:&quot;</div><div class="line">int main() &#123;</div><div class="line">    int array[N] = &#123;1,2,4,3,5&#125;;</div><div class="line">    int temp;</div><div class="line">    for (int i = 0; i &lt; N; i++) &#123;</div><div class="line">        for (int j = 0 ; j &lt; i; j++) &#123;</div><div class="line">            if (array[i] &gt; array[j]) &#123;</div><div class="line">                temp = array[i];</div><div class="line">                array[i] = array[j];</div><div class="line">                array[j] = temp;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    for (int m = 0; m&lt;N; m++) &#123;</div><div class="line">        printf(&quot;%d&quot;,array[m]);</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>创建完成以后看到这个♬ ♫ ♬ ♫  Your Ionic app is ready to go! ♬ ♫ ♬ ♫</p>
+<p>转到该目录下，<code>cd myApp</code></p>
+<p><code>ionic platform add ios</code></p>
+<p>编译该应用<code>ionic build ios</code></p>
+<p>在iOS模拟器上运行该应用<code>ionic emulate ios</code></p>
 
 
 
@@ -261,11 +264,11 @@
 		<ul class="article-tag-list">
 			 
         <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color4">C++</a>
+        	<a href="javascript:void(0)" class="article-tag-list-link color1">ionic</a>
         </li>
        
         <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color3">笔记</a>
+        	<a href="javascript:void(0)" class="article-tag-list-link color4">跨平台</a>
         </li>
       
 		</ul>
@@ -321,7 +324,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://txmudy.cn/2017/02/03/C学习笔记/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://txmudy.cn/2017/02/04/ionic环境安装与运行/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -335,18 +338,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/02/04/Runtime应用/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/04/python学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Runtime应用
+          python学习笔记
         
       </div>
     </a>
   
   
-    <a href="/2017/01/21/python函数式编程－map-reduce/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python函数式编程－map/reduce</div>
+    <a href="/2017/02/04/Runtime应用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Runtime应用</div>
       <i class="icon-circle-right"></i>
     </a>
   
