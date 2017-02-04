@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1053458-e36faba1f3f9be8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1053458-99cecbaee4250aec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1053458-8e11cee17490c53a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-01-10T14:46:25.000Z">
+<meta property="og:updated_time" content="2017-02-04T12:11:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flex布局">
 <meta name="twitter:description" content="学习过程中记的笔记">
@@ -224,8 +224,7 @@
 
 <div class="article-entry" itemprop="articleBody">
 
-<p>学习过程中记的笔记</p>
-<a id="more"></a>
+<p>学习过程中记的笔记<br><a id="more"></a></p>
 <h2 id="一、常用组建之View"><a href="#一、常用组建之View" class="headerlink" title="一、常用组建之View"></a>一、常用组建之View</h2><p> &emsp;Reactive Native中的组件view，相当于iOS中的UIView,Android中的android.view<br>在Reactive Native开发中，使用StyleSheet来进行组件的布局。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class BView extends Component &#123;  </div><div class="line">     Render() &#123;    </div><div class="line">       return (       </div><div class="line">        &lt;View style=&#123;styles.container&#125;&gt;          </div><div class="line">           &lt;Text&gt;我是顶层view&lt;/Text&gt;          </div><div class="line">             &lt;View style = &#123;styles.innerStyle&#125;&gt;            </div><div class="line">                 &lt;Text&gt;我是子层view&lt;/Text&gt;          </div><div class="line">             &lt;/View&gt;        </div><div class="line">         &lt;/View&gt;    </div><div class="line">       );  </div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line"></div><div class="line">   const styles = StyleSheet.create(&#123;  </div><div class="line">     container:&#123;    </div><div class="line">       //flex: 1,　//占满整个屏幕    </div><div class="line">       //justifyContent:&apos;center&apos;,    </div><div class="line">       //alignItems: &apos;center&apos;,    </div><div class="line">       backgroundColor:&apos;red&apos;,    </div><div class="line">       width :300,    height : 60  </div><div class="line">     &#125;,  </div><div class="line">     innerStyle:&#123;    </div><div class="line">       backgroundColor:&apos;yellow&apos;  </div><div class="line">     &#125;</div><div class="line">   &#125;);</div></pre></td></tr></table></figure>
 <p>  &emsp;在Render函数中，我们返回了一个顶层的View，然后View中包含着另一个字层的View。</p>
