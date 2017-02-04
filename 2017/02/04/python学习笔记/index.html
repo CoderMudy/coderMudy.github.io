@@ -8,19 +8,16 @@
   <link rel="dns-prefetch" href="http://txmudy.cn">
   <title>python学习笔记 | Mudy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用dictdict就是字典（key-value）
-123456789101112131415161718192021222324&amp;gt;&amp;gt;&amp;gt; score = &amp;#123;&amp;apos;mudy&amp;apos;:90,&amp;apos;huy&amp;apos;:100,&amp;apos;none&amp;apos;:70&amp;#125;&amp;gt;&amp;gt;&amp;gt; score[&amp;apos;huy&amp;apos;]100&amp;gt;&amp;">
+  <meta name="description" content="人生苦短，我用Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python学习笔记">
 <meta property="og:url" content="http://txmudy.cn/2017/02/04/python学习笔记/index.html">
 <meta property="og:site_name" content="Mudy">
-<meta property="og:description" content="使用dictdict就是字典（key-value）
-123456789101112131415161718192021222324&amp;gt;&amp;gt;&amp;gt; score = &amp;#123;&amp;apos;mudy&amp;apos;:90,&amp;apos;huy&amp;apos;:100,&amp;apos;none&amp;apos;:70&amp;#125;&amp;gt;&amp;gt;&amp;gt; score[&amp;apos;huy&amp;apos;]100&amp;gt;&amp;">
-<meta property="og:updated_time" content="2017-02-04T12:05:19.000Z">
+<meta property="og:description" content="人生苦短，我用Python">
+<meta property="og:updated_time" content="2017-02-04T12:07:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python学习笔记">
-<meta name="twitter:description" content="使用dictdict就是字典（key-value）
-123456789101112131415161718192021222324&amp;gt;&amp;gt;&amp;gt; score = &amp;#123;&amp;apos;mudy&amp;apos;:90,&amp;apos;huy&amp;apos;:100,&amp;apos;none&amp;apos;:70&amp;#125;&amp;gt;&amp;gt;&amp;gt; score[&amp;apos;huy&amp;apos;]100&amp;gt;&amp;">
+<meta name="twitter:description" content="人生苦短，我用Python">
   
     <link rel="alternative" href="/atom.xml" title="Mudy" type="application/atom+xml">
   
@@ -220,6 +217,7 @@
 
 <div class="article-entry" itemprop="articleBody">
 
+<p>人生苦短，我用Python<br><a id="more"></a></p>
 <h5 id="使用dict"><a href="#使用dict" class="headerlink" title="使用dict"></a>使用dict</h5><p><code>dict就是字典（key-value）</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; score = &#123;&apos;mudy&apos;:90,&apos;huy&apos;:100,&apos;none&apos;:70&#125;</div><div class="line">&gt;&gt;&gt; score[&apos;huy&apos;]</div><div class="line">100</div><div class="line">&gt;&gt;&gt; score[&apos;mudy&apos;]</div><div class="line">90</div><div class="line">&gt;&gt;&gt; score[&apos;mudy&apos;]=89</div><div class="line">&gt;&gt;&gt; score[&apos;mudy&apos;]</div><div class="line">89</div><div class="line">&gt;&gt;&gt; &apos;mudy&apos; in score</div><div class="line">True</div><div class="line">&gt;&gt;&gt; </div><div class="line">&gt;&gt;&gt; score.get(&apos;mudy&apos;)</div><div class="line">89</div><div class="line">&gt;&gt;&gt; score.get(&apos;mudy1&apos;)</div><div class="line">&gt;&gt;&gt; score</div><div class="line">&#123;&apos;mudy&apos;: 89, &apos;none&apos;: 70, &apos;huy&apos;: 100&#125;</div><div class="line">&gt;&gt;&gt; score[&apos;xiaom&apos;] = 77</div><div class="line">&gt;&gt;&gt; score</div><div class="line">&#123;&apos;mudy&apos;: 89, &apos;none&apos;: 70, &apos;huy&apos;: 100, &apos;xiaom&apos;: 77&#125;</div><div class="line">&gt;&gt;&gt; score.pop(&apos;xiaom&apos;)</div><div class="line">77</div><div class="line">&gt;&gt;&gt; score</div><div class="line">&#123;&apos;mudy&apos;: 89, &apos;none&apos;: 70, &apos;huy&apos;: 100&#125;</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
 <ul>
