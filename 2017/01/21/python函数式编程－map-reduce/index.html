@@ -14,10 +14,12 @@
 <meta property="og:url" content="http://txmudy.cn/2017/01/21/python函数式编程－map-reduce/index.html">
 <meta property="og:site_name" content="Mudy">
 <meta property="og:description" content="人生苦短我用python">
-<meta property="og:updated_time" content="2017-02-04T12:11:17.000Z">
+<meta property="og:image" content="http://txmudy.cn/./img//Screenshot from 2017-02-08 21_27_58.png">
+<meta property="og:updated_time" content="2017-02-08T14:15:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python函数式编程－map/reduce">
 <meta name="twitter:description" content="人生苦短我用python">
+<meta name="twitter:image" content="http://txmudy.cn/./img//Screenshot from 2017-02-08 21_27_58.png">
   
     <link rel="alternative" href="/atom.xml" title="Mudy" type="application/atom+xml">
   
@@ -222,6 +224,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; from functools import reduce</div><div class="line"></div><div class="line">&gt;&gt;&gt; def add(x,y):</div><div class="line"></div><div class="line">...    return x + y</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">&gt;&gt;&gt; reduce(add,[1,3,5,7,9])</div><div class="line"></div><div class="line">25</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">如果要只是求和的话，可以使用map函数，</div><div class="line"></div><div class="line">&gt;&gt;&gt; sum([1,2,3,4,5])</div><div class="line"></div><div class="line">15</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt;&gt;&gt; from functools import reduce</div><div class="line"></div><div class="line">&gt;&gt;&gt; def fn(x,y):</div><div class="line"></div><div class="line">...    return 10*x + y</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">&gt;&gt;&gt; reduce(fn,[1,2,3,4])</div><div class="line"></div><div class="line">1234</div><div class="line"></div><div class="line">&gt;&gt;&gt; reduce(fn,[1,3,5,7])</div><div class="line"></div><div class="line">1357</div><div class="line"></div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+<p><img src="./img//Screenshot from 2017-02-08 21_27_58.png" alt=""></p>
+
 
 
 
